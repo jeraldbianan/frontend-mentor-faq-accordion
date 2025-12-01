@@ -40,13 +40,6 @@ class FAQAccordion {
     summary.setAttribute("aria-controls", answerId);
     answer.setAttribute("aria-labelledby", questionId);
     answer.setAttribute("role", "region");
-
-    // Make summary keyboard accessible
-    summary.setAttribute("tabindex", "0");
-    summary.setAttribute("role", "button");
-
-    // Set initial visibility
-    answer.style.display = details.open ? "block" : "none";
   }
 
   addEventListeners(details, summary, answer) {
@@ -71,11 +64,11 @@ class FAQAccordion {
   handleToggle(details, summary, answer) {
     const isOpen = details.open;
 
-    // Update ARIA attribute
+    // Update ARIA attribute to reflect current state
     summary.setAttribute("aria-expanded", isOpen ? "true" : "false");
 
-    // Update visibility
-    answer.style.display = isOpen ? "block" : "none";
+    // Note: Removed style.display manipulation - relying on native <details> behavior
+    // This allows screen readers to properly access content in the expanded state
 
     // Update icons
     this.updateIcons(summary, isOpen);
