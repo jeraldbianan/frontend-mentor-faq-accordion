@@ -1,0 +1,352 @@
+@font-face {
+  font-family: "WorkSans";
+  src: url("../assets/fonts/WorkSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "WorkSans";
+  src: url("../assets/fonts/WorkSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "WorkSans";
+  src: url("../assets/fonts/WorkSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --color-purple-950: #301534;
+  --color-purple-600: #8b6990;
+  --color-purple-100: #f8eeff;
+  --color-violet-600: #ad28eb;
+  --line-height-66: 66px;
+  --line-height-21: 21px;
+  --line-height-24: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "WorkSans", sans-serif;
+}
+
+/* Screen reader only class for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+body {
+  background: url("../assets/images/background-pattern-mobile.svg") no-repeat
+    top right/contain;
+  background-color: var(--color-purple-100);
+  color: var(--color-purple-950);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+main {
+  max-width: 100%;
+  width: 100%;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 32px 56px 0px rgba(80, 0, 118, 0.1);
+  padding: 24px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.faq-header img {
+  width: 24px;
+  height: 24px;
+}
+
+.faq-header h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--color-purple-950);
+}
+
+.faq-header p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: var(--line-height-21);
+  color: var(--color-purple-600);
+}
+
+.faq-accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Ensure accordion is navigable via keyboard */
+.faq-accordion:focus-within {
+  outline: none;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-purple-100);
+  padding: 16px 0;
+  animation: fadeIn 0.5s ease-out backwards;
+}
+
+.faq-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.faq-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.faq-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.faq-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.faq-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Remove default details marker */
+.faq-item summary {
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-purple-950);
+  outline: none;
+  transition: color 0.3s ease, outline 0.2s ease, transform 0.2s ease;
+  user-select: none;
+  padding: 4px;
+  margin: -4px;
+  border-radius: 4px;
+}
+
+/* Hover state for better user feedback */
+.faq-question:hover {
+  color: var(--color-violet-600);
+}
+
+.faq-question:hover .icon-plus,
+.faq-question:hover .icon-minus {
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* Focus state for keyboard navigation - highly visible outline */
+.faq-question:focus {
+  outline: 3px solid var(--color-violet-600);
+  outline-offset: 4px;
+  color: var(--color-violet-600);
+}
+
+/* Focus-visible for browsers that support it */
+.faq-question:focus-visible {
+  outline: 3px solid var(--color-violet-600);
+  outline-offset: 4px;
+  color: var(--color-violet-600);
+}
+
+/* Remove outline on mouse click, but keep for keyboard */
+.faq-question:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.faq-answer {
+  margin-top: 12px;
+  padding-right: 40px;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: var(--line-height-21);
+  color: var(--color-purple-600);
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-answer p {
+  margin: 0;
+}
+.faq-question .icon-plus,
+.faq-question .icon-minus {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    opacity 0.2s ease;
+}
+
+.faq-question .icon-minus {
+  display: none;
+}
+
+.faq-item[open] .faq-question .icon-plus {
+  display: none;
+  animation: iconFadeOut 0.2s ease;
+}
+
+.faq-item[open] .faq-question .icon-minus {
+  display: block;
+  animation: iconFadeIn 0.3s ease;
+}
+
+@keyframes iconFadeOut {
+  from {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes iconFadeIn {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.faq-question:active .icon-plus,
+.faq-question:active .icon-minus {
+  transform: scale(0.9);
+  transition: transform 0.1s ease;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+footer {
+  margin-top: 48px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-purple-600);
+}
+
+footer a {
+  color: var(--color-violet-600);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  body {
+    background: url("../assets/images/background-pattern-desktop.svg") no-repeat
+      top right/contain;
+    padding: 4rem;
+  }
+
+  .container {
+    padding: 48px;
+  }
+
+  .faq-header h1 {
+    font-size: 56px;
+  }
+
+  .faq-header p {
+    font-size: 1.125rem;
+    line-height: var(--line-height-24);
+  }
+}
+
+@media (min-width: 1440px) {
+  body {
+    padding: 6rem;
+  }
+
+  main {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    width: 100%;
+  }
+}
