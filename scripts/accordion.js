@@ -1,8 +1,3 @@
-/**
- * FAQ Accordion with Accessibility Features
- * Handles accordion functionality with full keyboard support and screen reader announcements
- */
-
 class FAQAccordion {
   constructor() {
     this.accordionItems = document.querySelectorAll(".faq-item");
@@ -44,7 +39,7 @@ class FAQAccordion {
 
   addEventListeners(details, summary, answer) {
     // Handle native details toggle - this fires on both click and keyboard
-    details.addEventListener("toggle", (e) => {
+    details.addEventListener("toggle", () => {
       this.handleToggle(details, summary, answer);
     });
 
@@ -108,8 +103,11 @@ class FAQAccordion {
   }
 
   updateIcons(summary, isOpen) {
-    const plusIcon = summary.querySelector(".icon-plus");
-    const minusIcon = summary.querySelector(".icon-minus");
+    const iconWrapper = summary.querySelector(".icon-wrapper");
+    if (!iconWrapper) return;
+
+    const plusIcon = iconWrapper.querySelector(".icon-plus");
+    const minusIcon = iconWrapper.querySelector(".icon-minus");
 
     if (plusIcon && minusIcon) {
       plusIcon.style.display = isOpen ? "none" : "block";
