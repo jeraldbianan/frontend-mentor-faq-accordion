@@ -69,7 +69,7 @@ body {
   background-image: url("../assets/images/background-pattern-mobile.svg");
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: clamp(100%, 100vw, 120%);
+  background-size: 100% auto;
   background-color: var(--color-bg-light);
   color: var(--color-text-primary);
   min-height: 100vh;
@@ -129,6 +129,7 @@ main {
 
 .faq-header img {
   width: clamp(1.25rem, 3vw, 1.5rem);
+  max-width: 2rem;
   height: auto;
   max-height: clamp(1.25rem, 3vw, 1.5rem);
   object-fit: contain;
@@ -233,7 +234,7 @@ main {
   line-height: 1.5;
   color: var(--color-text-secondary);
   overflow: hidden;
-  animation: slideDown 0.3s ease-out;
+  animation: slideDown 0.4s ease-out;
 }
 
 @keyframes slideDown {
@@ -257,15 +258,19 @@ main {
   justify-content: center;
   flex-shrink: 0;
   width: clamp(1.25rem, 2.5vw, 1.5rem);
+  max-width: 2rem;
   height: clamp(1.25rem, 2.5vw, 1.5rem);
+  max-height: 2rem;
 }
 
 .faq-question .icon-plus,
 .faq-question .icon-minus {
   width: 100%;
+  max-width: 2rem;
   height: 100%;
+  max-height: 2rem;
   object-fit: contain;
-  transition: opacity 0.2s ease, transform 0.15s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .faq-question .icon-minus {
@@ -309,16 +314,10 @@ footer a {
   font-weight: 600;
 }
 
-@media (min-width: 30em) {
-  body {
-    background-size: clamp(100%, 110vw, 140%);
-  }
-}
-
 @media (min-width: 48em) {
   body {
     background-image: url("../assets/images/background-pattern-desktop.svg");
-    background-size: clamp(100%, 100vw, 100%) auto;
+    background-size: 100% auto;
     background-position: top center;
   }
 
@@ -329,14 +328,14 @@ footer a {
 
 @media (min-width: 64em) {
   body {
-    background-size: clamp(100%, 100vw, 120%) clamp(40vh, 50vh, 60vh);
+    background-size: contain;
     background-position: top center;
   }
 }
 
 @media (min-width: 90em) {
   body {
-    background-size: clamp(100%, 100vw, 100%) clamp(40vh, 45vh, 50vh);
+    background-size: contain;
     background-position: top center;
   }
 
