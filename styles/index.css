@@ -104,6 +104,7 @@ main {
   border-radius: 0.9375rem;
   box-shadow: 0 var(--shadow-offset-y) var(--shadow-blur) 0 var(--shadow-color);
   padding: clamp(1.5rem, 4vw, 3rem);
+  width: clamp(20rem, 95%, 37.5rem);
   max-width: 100%;
   animation: fadeInUp 0.6s ease-out;
 }
@@ -160,27 +161,27 @@ main {
 }
 
 .faq-item[data-index="1"] {
-  animation-delay: calc(var(--animation-delay-base) * 1);
+  animation-delay: calc(var(--animation-delay-base) * 0.5);
 }
 
 .faq-item[data-index="2"] {
-  animation-delay: calc(var(--animation-delay-base) * 2);
+  animation-delay: calc(var(--animation-delay-base) * 1);
 }
 
 .faq-item[data-index="3"] {
-  animation-delay: calc(var(--animation-delay-base) * 3);
+  animation-delay: calc(var(--animation-delay-base) * 1.5);
 }
 
 .faq-item[data-index="4"] {
-  animation-delay: calc(var(--animation-delay-base) * 4);
+  animation-delay: calc(var(--animation-delay-base) * 2);
 }
 
 .faq-item[data-index="5"] {
-  animation-delay: calc(var(--animation-delay-base) * 5);
+  animation-delay: calc(var(--animation-delay-base) * 2.5);
 }
 
 .faq-item[data-index="6"] {
-  animation-delay: calc(var(--animation-delay-base) * 6);
+  animation-delay: calc(var(--animation-delay-base) * 3);
 }
 
 @keyframes fadeIn {
