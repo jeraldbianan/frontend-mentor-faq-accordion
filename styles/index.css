@@ -30,12 +30,17 @@
   /* Semantic color variables with fallbacks */
   --color-text-primary: var(--color-purple-950, #301534);
   --color-text-secondary: var(--color-purple-600, #8b6990);
-  --color-text-accent: var(--color-violet-600, #ad28eb);
   --color-bg-primary: var(--color-white, #ffffff);
   --color-bg-light: var(--color-purple-100, #f8eeff);
-  --color-border: var(--color-purple-100, #f8eeff);
-  --color-focus: var(--color-violet-600, #ad28eb);
-  --color-hover: var(--color-violet-600, #ad28eb);
+
+  /* Interactive colors - all use accent color */
+  --color-accent: var(--color-violet-600, #ad28eb);
+  --color-text-accent: var(--color-accent);
+  --color-focus: var(--color-accent);
+  --color-hover: var(--color-accent);
+
+  /* Border uses light background color */
+  --color-border: var(--color-bg-light);
 
   /* Animation and effects */
   --animation-delay-base: 0.1s;
@@ -64,7 +69,7 @@ body {
   background-image: url("../assets/images/background-pattern-mobile.svg");
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: 100% auto;
+  background-size: clamp(100%, 100vw, 120%);
   background-color: var(--color-bg-light);
   color: var(--color-text-primary);
   min-height: 100vh;
@@ -106,11 +111,11 @@ main {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translate3d(0, 1rem, 0);
+    transform: translateY(1rem);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
   }
 }
 
@@ -157,11 +162,11 @@ main {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translate3d(-0.75rem, 0, 0);
+    transform: translateX(-0.75rem);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
   }
 }
 
@@ -234,11 +239,11 @@ main {
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translate3d(0, -0.5rem, 0);
+    transform: translateY(-0.5rem);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
   }
 }
 
@@ -306,14 +311,14 @@ footer a {
 
 @media (min-width: 30em) {
   body {
-    background-size: clamp(100%, 120vw, 150%);
+    background-size: clamp(100%, 110vw, 140%);
   }
 }
 
 @media (min-width: 48em) {
   body {
     background-image: url("../assets/images/background-pattern-desktop.svg");
-    background-size: 100% auto;
+    background-size: clamp(100%, 100vw, 100%) auto;
     background-position: top center;
   }
 
@@ -324,14 +329,14 @@ footer a {
 
 @media (min-width: 64em) {
   body {
-    background-size: cover;
+    background-size: clamp(100%, 100vw, 120%) clamp(40vh, 50vh, 60vh);
     background-position: top center;
   }
 }
 
 @media (min-width: 90em) {
   body {
-    background-size: 100% 50vh;
+    background-size: clamp(100%, 100vw, 100%) clamp(40vh, 45vh, 50vh);
     background-position: top center;
   }
 
