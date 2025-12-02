@@ -36,7 +36,6 @@ class FAQAccordion {
     summary.setAttribute("aria-expanded", details.open ? "true" : "false");
     summary.setAttribute("aria-controls", answerId);
     answer.setAttribute("aria-labelledby", questionId);
-    answer.setAttribute("role", "region");
   }
 
   addEventListeners(details, summary, answer) {
