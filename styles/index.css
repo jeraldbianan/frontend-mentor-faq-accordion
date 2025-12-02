@@ -59,7 +59,7 @@ body {
   width: 0.0625rem;
   height: 0.0625rem;
   padding: 0;
-  margin: -0.0625rem;
+  margin: clamp(-0.0625rem, -0.1vw, 0);
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
@@ -198,7 +198,7 @@ main {
 
 .faq-answer {
   margin-block-start: clamp(0.5rem, 2vw, 0.75rem);
-  padding-right: clamp(1.5rem, 5vw, 2.5rem);
+  padding-inline-end: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -221,30 +221,33 @@ main {
 .faq-answer p {
   margin: 0;
 }
+
 .icon-plus,
 .icon-minus {
   flex-shrink: 0;
+  width: clamp(1.25rem, 3vw, 1.5rem);
+  height: auto;
+  transition: transform 0.3s ease-out, opacity 0.2s ease;
+}
+
+.faq-question .icon-plus,
+.faq-question .icon-minus {
   max-width: 1.5rem;
   max-height: 1.5rem;
   width: 100%;
   height: auto;
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-    opacity 0.2s ease;
+  transition: transform 0.3s ease-out, opacity 0.2s ease;
+}
+
+.faq-question:active .icon-plus,
+.faq-question:active .icon-minus {
+  transform: scale(0.9);
+  transition: transform 0.1s ease;
 }
 
 .faq-question .icon-plus,
 .faq-question .icon-minus {
   transform: rotate(90deg) scale(1.1);
-}
-
-.faq-question:hover .icon-plus,
-.faq-question:hover .icon-minus {
-  max-width: 1.5rem;
-  max-height: 1.5rem;
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-    opacity 0.2s ease;
 }
 
 .faq-question .icon-minus {
