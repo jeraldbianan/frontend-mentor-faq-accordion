@@ -157,7 +157,30 @@ main {
   border-bottom: 1px solid var(--color-border);
   padding: 1rem 0;
   animation: fadeIn 0.5s ease-out backwards;
-  /* animation-delay set dynamically via JavaScript */
+}
+
+.faq-item[data-index="1"] {
+  animation-delay: calc(var(--animation-delay-base) * 1);
+}
+
+.faq-item[data-index="2"] {
+  animation-delay: calc(var(--animation-delay-base) * 2);
+}
+
+.faq-item[data-index="3"] {
+  animation-delay: calc(var(--animation-delay-base) * 3);
+}
+
+.faq-item[data-index="4"] {
+  animation-delay: calc(var(--animation-delay-base) * 4);
+}
+
+.faq-item[data-index="5"] {
+  animation-delay: calc(var(--animation-delay-base) * 5);
+}
+
+.faq-item[data-index="6"] {
+  animation-delay: calc(var(--animation-delay-base) * 6);
 }
 
 @keyframes fadeIn {
