@@ -3,6 +3,7 @@
   src: url("../assets/fonts/static/WorkSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   src: url("../assets/fonts/static/WorkSans-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +19,7 @@
   src: url("../assets/fonts/static/WorkSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -219,6 +222,7 @@ main {
   padding: 0.25rem;
   margin: -0.25rem;
   border-radius: 0.25rem;
+  will-change: color;
 }
 
 /* Hover state for better user feedback */
@@ -295,6 +299,7 @@ main {
   max-height: 2rem;
   object-fit: contain;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform;
 }
 
 .faq-question .icon-minus {

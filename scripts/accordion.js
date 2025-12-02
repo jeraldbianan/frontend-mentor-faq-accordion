@@ -1,6 +1,14 @@
 class FAQAccordion {
   constructor() {
     this.accordionItems = document.querySelectorAll(".faq-item");
+
+    if (this.accordionItems.length === 0) {
+      console.warn(
+        "No FAQ items found. Make sure elements with class 'faq-item' exist."
+      );
+      return;
+    }
+
     this.init();
   }
 
@@ -21,6 +29,11 @@ class FAQAccordion {
   }
 
   setupAccessibility(details, summary, answer, index) {
+    if (!summary || !answer) {
+      console.warn(`Missing summary or answer element for FAQ item ${index}`);
+      return;
+    }
+
     // Generate unique IDs
     const questionId = `faq-question-${index}`;
     const answerId = `faq-answer-${index}`;
@@ -71,10 +84,12 @@ class FAQAccordion {
   }
 
   handleKeyboard(e) {
-    // Space or Enter to toggle - let native details handle it, just prevent scroll
-    if (e.key === " ") {
+    // Space to toggle - prevent default scroll behavior
+    // Enter is handled natively by details element
+    if (e.key === " " || e.key === "Spacebar") {
       e.preventDefault();
-      // Native details will handle the toggle via Enter key automatically
+      // Click the summary to toggle the details element
+      e.currentTarget.click();
     }
 
     // Arrow navigation
