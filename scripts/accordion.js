@@ -56,12 +56,17 @@ class FAQAccordion {
     // Update ARIA attribute to reflect current state
     summary.setAttribute("aria-expanded", isOpen ? "true" : "false");
 
-    // Announce to screen readers with answer content when expanded
+    // Get question text for clearer announcements
+    const questionText = summary.textContent.replace(/\s+/g, " ").trim();
+
+    // Announce to screen readers with clear context
     if (isOpen) {
       const answerText = answer.textContent.trim();
-      this.announceToScreenReader(`Expanded. ${answerText}`);
+      this.announceToScreenReader(
+        `FAQ expanded: ${questionText}. Answer: ${answerText}`
+      );
     } else {
-      this.announceToScreenReader("Collapsed");
+      this.announceToScreenReader(`FAQ collapsed: ${questionText}`);
     }
   }
 
