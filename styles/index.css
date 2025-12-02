@@ -93,8 +93,10 @@ main {
 }
 
 .faq-header img {
-  width: 1.5rem;
-  height: 1.5rem;
+  max-width: 1.5rem;
+  max-height: 1.5rem;
+  width: 100%;
+  height: auto;
 }
 
 .faq-header h1 {
@@ -119,22 +121,7 @@ main {
   border-bottom: 1px solid var(--color-purple-100);
   padding: 1rem 0;
   animation: fadeIn 0.5s ease-out backwards;
-}
-
-.faq-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.faq-item:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.faq-item:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.faq-item:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.faq-item:nth-child(5) {
-  animation-delay: 0.5s;
+  animation-delay: calc(0.1s * var(--item-index, 0));
 }
 
 @keyframes fadeIn {
@@ -231,8 +218,10 @@ main {
 .faq-question .icon-plus,
 .faq-question .icon-minus {
   flex-shrink: 0;
-  width: 1.5rem;
-  height: 1.5rem;
+  max-width: 1.5rem;
+  max-height: 1.5rem;
+  width: 100%;
+  height: auto;
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
     opacity 0.2s ease;
 }
