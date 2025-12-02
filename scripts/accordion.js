@@ -29,6 +29,9 @@ class FAQAccordion {
     summary.id = questionId;
     answer.id = answerId;
 
+    // Set custom property for staggered animation
+    details.style.setProperty("--item-index", index + 1);
+
     // Set ARIA attributes
     summary.setAttribute("aria-expanded", details.open ? "true" : "false");
     summary.setAttribute("aria-controls", answerId);
