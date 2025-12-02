@@ -32,6 +32,14 @@ class FAQAccordion {
     // Set data attribute for staggered animation
     details.dataset.index = index + 1;
 
+    // Set animation delay dynamically using CSS custom property
+    const delayBase =
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--animation-delay-base")
+        .trim() || "0.1s";
+    const delayValue = parseFloat(delayBase) * (index + 1);
+    details.style.animationDelay = `${delayValue}s`;
+
     // Set ARIA attributes
     summary.setAttribute("aria-expanded", details.open ? "true" : "false");
     summary.setAttribute("aria-controls", answerId);

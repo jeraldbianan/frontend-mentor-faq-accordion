@@ -25,6 +25,7 @@
   --color-purple-100: #f8eeff;
   --color-violet-600: #ad28eb;
   --color-white: #ffffff;
+  --animation-delay-base: 0.1s;
 }
 
 * {
@@ -98,8 +99,6 @@ main {
 .faq-header img {
   max-width: 1.5rem;
   max-height: 1.5rem;
-  width: 100%;
-  height: auto;
 }
 
 .faq-header h1 {
@@ -124,27 +123,7 @@ main {
   border-bottom: 1px solid var(--color-purple-100);
   padding: 1rem 0;
   animation: fadeIn 0.5s ease-out backwards;
-  animation-delay: calc(0.1s * attr(data-index number, 0));
-}
-
-.faq-item[data-index="1"] {
-  animation-delay: 0.1s;
-}
-
-.faq-item[data-index="2"] {
-  animation-delay: 0.2s;
-}
-
-.faq-item[data-index="3"] {
-  animation-delay: 0.3s;
-}
-
-.faq-item[data-index="4"] {
-  animation-delay: 0.4s;
-}
-
-.faq-item[data-index="5"] {
-  animation-delay: 0.5s;
+  /* animation-delay set dynamically via JavaScript */
 }
 
 @keyframes fadeIn {
