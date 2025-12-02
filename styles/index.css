@@ -47,8 +47,10 @@
 }
 
 body {
-  background: url("../assets/images/background-pattern-mobile.svg") no-repeat
-    top right/contain;
+  background-image: url("../assets/images/background-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
   background-color: var(--color-purple-100);
   color: var(--color-purple-950);
   min-height: 100vh;
@@ -275,8 +277,9 @@ footer a {
 
 @media (min-width: 48em) {
   body {
-    background: url("../assets/images/background-pattern-desktop.svg") no-repeat
-      top right/contain;
+    background-image: url("../assets/images/background-pattern-desktop.svg");
+    background-size: 100% auto;
+    background-position: top center;
     padding: 4rem;
   }
 
