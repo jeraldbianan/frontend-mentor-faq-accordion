@@ -101,8 +101,8 @@ main {
 }
 
 .faq-header img {
-  max-width: 1.5rem;
-  max-height: 1.5rem;
+  width: clamp(1.25rem, 3vw, 1.5rem);
+  height: auto;
 }
 
 .faq-header h1 {
@@ -174,7 +174,7 @@ main {
 
 .faq-question:hover .icon-plus,
 .faq-question:hover .icon-minus {
-  transform: rotate(90deg) scale(1.1);
+  opacity: 0.8;
 }
 
 /* Focus state for keyboard navigation - highly visible outline */
@@ -222,32 +222,12 @@ main {
   margin: 0;
 }
 
-.icon-plus,
-.icon-minus {
+.faq-question .icon-plus,
+.faq-question .icon-minus {
   flex-shrink: 0;
-  width: clamp(1.25rem, 3vw, 1.5rem);
+  width: clamp(1.25rem, 2.5vw, 1.5rem);
   height: auto;
-  transition: transform 0.3s ease-out, opacity 0.2s ease;
-}
-
-.faq-question .icon-plus,
-.faq-question .icon-minus {
-  max-width: 1.5rem;
-  max-height: 1.5rem;
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease-out, opacity 0.2s ease;
-}
-
-.faq-question:active .icon-plus,
-.faq-question:active .icon-minus {
-  transform: scale(0.9);
-  transition: transform 0.1s ease;
-}
-
-.faq-question .icon-plus,
-.faq-question .icon-minus {
-  transform: rotate(90deg) scale(1.1);
+  transition: opacity 0.2s ease, transform 0.15s ease;
 }
 
 .faq-question .icon-minus {
@@ -264,8 +244,7 @@ main {
 
 .faq-question:active .icon-plus,
 .faq-question:active .icon-minus {
-  transform: scale(0.9);
-  transition: transform 0.1s ease;
+  transform: scale(0.95);
 }
 
 /* Reduce motion for users who prefer it */
