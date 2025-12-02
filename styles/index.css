@@ -20,11 +20,24 @@
 }
 
 :root {
+  /* Base color palette */
   --color-purple-950: #301534;
   --color-purple-600: #8b6990;
   --color-purple-100: #f8eeff;
   --color-violet-600: #ad28eb;
   --color-white: #ffffff;
+
+  /* Semantic color variables */
+  --color-text-primary: var(--color-purple-950);
+  --color-text-secondary: var(--color-purple-600);
+  --color-text-accent: var(--color-violet-600);
+  --color-bg-primary: var(--color-white);
+  --color-bg-light: var(--color-purple-100);
+  --color-border: var(--color-purple-100);
+  --color-focus: var(--color-violet-600);
+  --color-hover: var(--color-violet-600);
+
+  /* Animation and effects */
   --animation-delay-base: 0.1s;
   --shadow-offset-y: 2rem;
   --shadow-blur: 3.5rem;
@@ -52,8 +65,8 @@ body {
   background-repeat: no-repeat;
   background-position: top center;
   background-size: contain;
-  background-color: var(--color-purple-100);
-  color: var(--color-purple-950);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-primary);
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -82,7 +95,7 @@ main {
 }
 
 .container {
-  background-color: var(--color-white);
+  background-color: var(--color-bg-primary);
   border-radius: 0.9375rem;
   box-shadow: 0 var(--shadow-offset-y) var(--shadow-blur) 0 var(--shadow-color);
   padding: clamp(1.5rem, 4vw, 3rem);
@@ -93,7 +106,7 @@ main {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translate3d(0, 1.875rem, 0);
+    transform: translate3d(0, 1rem, 0);
   }
   to {
     opacity: 1;
@@ -111,14 +124,15 @@ main {
 
 .faq-header img {
   width: clamp(1.25rem, 3vw, 1.5rem);
-  height: clamp(1.25rem, 3vw, 1.5rem);
+  height: auto;
+  max-height: clamp(1.25rem, 3vw, 1.5rem);
   object-fit: contain;
 }
 
 .faq-header h1 {
   font-weight: 700;
   font-size: 2rem;
-  color: var(--color-purple-950);
+  color: var(--color-text-primary);
 }
 
 .faq-accordion {
@@ -134,7 +148,7 @@ main {
 }
 
 .faq-item {
-  border-bottom: 1px solid var(--color-purple-100);
+  border-bottom: 1px solid var(--color-border);
   padding: 1rem 0;
   animation: fadeIn 0.5s ease-out backwards;
   /* animation-delay set dynamically via JavaScript */
@@ -143,7 +157,7 @@ main {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translate3d(-1.25rem, 0, 0);
+    transform: translate3d(-0.75rem, 0, 0);
   }
   to {
     opacity: 1;
@@ -168,7 +182,7 @@ main {
   cursor: pointer;
   font-weight: 600;
   font-size: 1rem;
-  color: var(--color-purple-950);
+  color: var(--color-text-primary);
   outline: none;
   transition: color 0.3s ease;
   user-select: none;
@@ -179,7 +193,7 @@ main {
 
 /* Hover state for better user feedback */
 .faq-question:hover {
-  color: var(--color-violet-600);
+  color: var(--color-hover);
 }
 
 .faq-question:hover .icon-plus,
@@ -189,16 +203,16 @@ main {
 
 /* Focus state for keyboard navigation - highly visible outline */
 .faq-question:focus {
-  outline: 0.1875rem solid var(--color-violet-600);
+  outline: 0.1875rem solid var(--color-focus);
   outline-offset: 0.25rem;
-  color: var(--color-violet-600);
+  color: var(--color-text-accent);
 }
 
 /* Focus-visible for browsers that support it */
 .faq-question:focus-visible {
-  outline: 0.1875rem solid var(--color-violet-600);
+  outline: 0.1875rem solid var(--color-focus);
   outline-offset: 0.25rem;
-  color: var(--color-violet-600);
+  color: var(--color-text-accent);
 }
 
 /* Remove outline on mouse click, but keep for keyboard */
@@ -212,7 +226,7 @@ main {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
-  color: var(--color-purple-600);
+  color: var(--color-text-secondary);
   overflow: hidden;
   animation: slideDown 0.3s ease-out;
 }
@@ -220,7 +234,7 @@ main {
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translate3d(0, -0.625rem, 0);
+    transform: translate3d(0, -0.5rem, 0);
   }
   to {
     opacity: 1;
@@ -281,11 +295,11 @@ footer {
   margin-top: 3rem;
   text-align: center;
   font-size: 0.875rem;
-  color: var(--color-purple-600);
+  color: var(--color-text-secondary);
 }
 
 footer a {
-  color: var(--color-violet-600);
+  color: var(--color-text-accent);
   text-decoration: none;
   font-weight: 600;
 }
