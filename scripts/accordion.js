@@ -8,13 +8,12 @@ class FAQAccordion {
     this.accordionItems.forEach((item, index) => {
       const summary = item.querySelector(".faq-question");
       const answer = item.querySelector(".faq-answer");
-      const detailsElement = item;
 
       // Set up ARIA attributes for accessibility
-      this.setupAccessibility(detailsElement, summary, answer, index);
+      this.setupAccessibility(item, summary, answer, index);
 
       // Add event listeners
-      this.addEventListeners(detailsElement, summary, answer);
+      this.addEventListeners(item, summary, answer);
     });
 
     // Create live region for screen reader announcements
@@ -45,14 +44,7 @@ class FAQAccordion {
 
     // Handle keyboard navigation
     summary.addEventListener("keydown", (e) => {
-      this.handleKeyboard(e, details);
-    });
-
-    // Prevent text selection on double click
-    summary.addEventListener("mousedown", (e) => {
-      if (e.detail > 1) {
-        e.preventDefault();
-      }
+      this.handleKeyboard(e);
     });
   }
 
@@ -61,12 +53,6 @@ class FAQAccordion {
 
     // Update ARIA attribute to reflect current state
     summary.setAttribute("aria-expanded", isOpen ? "true" : "false");
-
-    // Note: Removed style.display manipulation - relying on native <details> behavior
-    // This allows screen readers to properly access content in the expanded state
-
-    // Update icons
-    this.updateIcons(summary, isOpen);
 
     // Announce to screen readers with answer content when expanded
     if (isOpen) {
@@ -77,7 +63,7 @@ class FAQAccordion {
     }
   }
 
-  handleKeyboard(e, details) {
+  handleKeyboard(e) {
     // Space or Enter to toggle - let native details handle it, just prevent scroll
     if (e.key === " ") {
       e.preventDefault();
@@ -99,19 +85,6 @@ class FAQAccordion {
     if (e.key === "End") {
       e.preventDefault();
       this.focusLastAccordion();
-    }
-  }
-
-  updateIcons(summary, isOpen) {
-    const iconWrapper = summary.querySelector(".icon-wrapper");
-    if (!iconWrapper) return;
-
-    const plusIcon = iconWrapper.querySelector(".icon-plus");
-    const minusIcon = iconWrapper.querySelector(".icon-minus");
-
-    if (plusIcon && minusIcon) {
-      plusIcon.style.display = isOpen ? "none" : "block";
-      minusIcon.style.display = isOpen ? "block" : "none";
     }
   }
 
